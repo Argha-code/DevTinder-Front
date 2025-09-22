@@ -1,14 +1,32 @@
 import React, { use } from 'react'
-import {useSelector} from "react-redux"
-import { Link } from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux"
+import { Link, useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../utils/constant'
+import axios from 'axios'
+import { removeUser } from '../utils/userSlice'
 
 
 const NavBar = () => {
 // adding the photo in the navbar or subcribe the store whiche stre read the data and put my photo in the navbar
 const user = useSelector((store)=>store.user)   
 // console.log(user)
-    
+const dispatch = useDispatch() // we need dispatch a action to remove the user from the redux store
+const navigate = useNavigate()    
 
+  const handleLogout = async() =>{
+      
+    // API call for logout
+    try{ 
+       await axios.post(BASE_URL + "/logout",{},{withCredentials: true})
+       // clear the data from the redux store
+       dispatch(removeUser())
+       return navigate("/login")
+     
+    }catch(err){
+     // Error logic maybe redirect to the error page 
+
+    }
+  }
   return (
      <div className="navbar bg-base-950 shadow-sm ">
   <div className="flex-1">
@@ -36,7 +54,9 @@ const user = useSelector((store)=>store.user)
           </Link>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li>
+          <a onClick={handleLogout}>Logout</a>
+          </li>
       </ul>
     </div>
 

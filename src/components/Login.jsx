@@ -11,6 +11,7 @@ const Login = () => {
     
   const [emailId,setEmailId] = useState("akshay@gmail.com") ;  
   const [password,setPassword] = useState("Akshay@123");
+  const [error,setError] = useState("")   // showing errror message and make it dynamic
   const dispatch = useDispatch()   // its a hook given by react redux
   const navigate = useNavigate()     // hook
 
@@ -29,7 +30,8 @@ const Login = () => {
       return navigate("/")  // going to a "/" page after login
     
     } catch(err){
-        console.error(err)
+      setError(err?.response?.data || "something went wrong")  // getting from backend code
+       
       }
  }
   
@@ -65,6 +67,8 @@ const Login = () => {
 
    </div>
 
+
+     <p className="text-red-900">{error}</p>   
     <div className="card-actions justify-center">
       <button className="btn btn-primary" onClick={handleLogin}>Login</button>
     </div>
