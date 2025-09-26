@@ -29,7 +29,7 @@ const Body = () => {
       if(err.status==401){
          navigate("/login") // if i am not login redirect to the login 
       }
-      console.error(err)
+    //console.error(err)
     }
   }
 

@@ -17,7 +17,7 @@ const navigate = useNavigate()
       
     // API call for logout
     try{ 
-       await axios.post(BASE_URL + "/logout",{},{withCredentials: true})
+       await axios.post(BASE_URL + "/logout",{},{withCredentials: true})  // api call
        // clear the data from the redux store
        dispatch(removeUser())
        return navigate("/login")
