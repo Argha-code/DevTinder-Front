@@ -5,11 +5,12 @@ import Profile from "./components/Profile"
 import {Provider} from "react-redux"
 import appStore from "./utils/appStore"    // now i use the store everywhere
 import Feed from "./components/Feed"
+import Connections from "./components/Connections"
 
 
 function App() {
   
-
+   // Creating all my pages
   return (
     <>
     <Provider store={appStore}>
@@ -19,6 +20,10 @@ function App() {
               <Route path="/" element={<Feed />}/>
               <Route path="/login" element={<Login />}/>
               <Route path="/profile" element={<Profile />}/>
+              <Route path="/connections" element={<Connections />}/>
+              <Route path="/request" element={<Profile />}/>
+
+
             </Route>
            </Routes>
        </BrowserRouter>  

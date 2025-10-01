@@ -27,6 +27,7 @@ Get the feed and add the feed in the the store
 build the user card on feed
 Edit profile Feature 
 Show Toast message on save of profile
+See all my connections and
 
 
 
