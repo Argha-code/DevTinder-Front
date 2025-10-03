@@ -9,8 +9,11 @@ import { BASE_URL } from "../utils/constant";
 
 const Login = () => {
     
-  const [emailId,setEmailId] = useState("akshay@gmail.com") ;  
-  const [password,setPassword] = useState("Akshay@123");
+  const [emailId,setEmailId] = useState("") ;    // state variable
+  const [password,setPassword] = useState("");
+  const [firstName,setFirstName] = useState("")
+  const [lastName,SetLastName] = useState("")
+  const [isLoginForm, setIsLoginForm] = useState(true)  // its act like a switch change to login and sign from .True=Login & False=SignUp
   const [error,setError] = useState("")   // showing errror message and make it dynamic
   const dispatch = useDispatch()   // its a hook given by react redux
   const navigate = useNavigate()     // hook
@@ -34,16 +37,54 @@ const Login = () => {
        
       }
  }
+
+
+ const handleSignUp = async()=>{
+  try{ 
+
+    const res = await axios.post(BASE_URL + "/signup",
+       {firstName, lastName, emailId, password},    // passing this
+       {withCredentials:true}
+      )
+    dispatch(addUser(res.data.data))
+    return navigate("/profile")
+  }catch(err){
+    setError(err?.response?.data || "something went wrong")
+  }
+ }
   
 
-  return (
+  return ( // if it a login form then write Login else write signUp
     <div className='flex justify-center my-8'>
         
       <div className="card card-dash bg-info-content w-85">
       <div className="card-body">
-      <h2 className="card-title  justify-center">Login</h2>
+      <h2 className="card-title  justify-center">{isLoginForm ? "Login" : "SignUp" }</h2>   
 
    <div > 
+
+       
+    { !isLoginForm  && (
+        <> 
+      <fieldset className="fieldset my-2">
+        <legend className="fieldset-legend ">First tName</legend>
+        <input 
+        type="text" 
+        value = {firstName}
+        className="input"  
+        onChange={(e)=> setFirstName(e.target.value)} 
+        />
+      </fieldset>
+
+      <fieldset className="fieldset my-2">
+        <legend className="fieldset-legend ">Last Name</legend>
+        <input 
+        type="text" 
+        value = {lastName}
+        className="input"  
+        onChange={(e)=> SetLastName(e.target.value)} 
+        />
+      </fieldset> </>)} 
       
       <fieldset className="fieldset my-2">
         <legend className="fieldset-legend ">Email Id</legend>
@@ -58,7 +99,7 @@ const Login = () => {
       <fieldset className="fieldset my-2">
         <legend className="fieldset-legend ">Password</legend>
         <input 
-        type="text" 
+        type="password" 
         value = {password}
         className="input"  
         onChange={(e)=> setPassword(e.target.value)}
@@ -70,12 +111,17 @@ const Login = () => {
 
      <p className="text-red-900">{error}</p>   
     <div className="card-actions justify-center">
-      <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+      <button className="btn btn-primary" onClick={isLoginForm? handleLogin: handleSignUp}>
+       {isLoginForm? "Login": "SignUp"}</button>
     </div>
+       <p className="m-auto cursor-pointer py-2" onClick={()=>setIsLoginForm((value) => !value) }>
+      {isLoginForm
+       ? "New User? SignUp Here"
+       : "Existing User? Login Here"
+      }</p>
   </div>
 </div>
-
-    </div>
+</div>
   )
 }
 

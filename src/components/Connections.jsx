@@ -17,7 +17,7 @@ const Connections = () => {
 
      
     //  console.log(res.data.data)  // getting the connection in console
-     dispatch(addConnections(res.data.data))   // store in my Rdux Store
+     dispatch(addConnections(res.data.data))   // store in my Redux Store
         }catch(err){
             
         }
