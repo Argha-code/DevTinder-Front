@@ -53,7 +53,11 @@ const navigate = useNavigate()
             <span className="badge">New</span>
           </Link>
         </li>
+
         <li><Link to="/connections">Connections</Link></li>
+
+         <li><Link to="/requests">Requests</Link></li>
+
         <li>
           <a onClick={handleLogout}>Logout</a>
           </li>
