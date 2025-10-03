@@ -29,6 +29,7 @@ Edit profile Feature
 Show Toast message on save of profile
 New Page - See all my connections
 New Page - See all my connection Request
+Feature - Accept/reject Connection Request
 
 
 

@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constant'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRequests } from '../utils/requestSlice'
+import { addRequests, removeRequest } from '../utils/requestSlice'
 import axios from 'axios'
 
 const Requests = () => {
     const requests = useSelector((store => store.requests))
       const dispatch = useDispatch()
+
+
+      const reviewRequest = async (status,_id) => {    // getting the status and id
+        try{
+          const tres = axios.post(BASE_URL + "/request/review/"+status + "/" + _id, 
+            {},
+            { withCredentials:true }
+          )
+          dispatch(removeRequest(_id))
+        }catch(err){}
+      }
+
 
 
       const fetchRequests = async () => {
@@ -40,7 +52,7 @@ const Requests = () => {
           return (
         <div key={_id} className="flex justify-between items-center m-4 p-4  rounded-lg bg-base-300 w-1/2 mx-auto">
 
-            <div><img alt="photo" className ="w-20 h-20 rounded-full" src={photoUrl}/></div>
+            <div><img alt="photo" className ="w-20 h-20 rounded-full object-cover" src={photoUrl}/></div>
 
             <div className="text-left mx-4">
                   <h2 className="font-bold text-xl">{firstName + " " + lastName}</h2>
@@ -50,8 +62,8 @@ const Requests = () => {
             </div>
                
             <div>
-                <button className="btn btn-primary mx-2">Reject</button>
-                <button className="btn btn-secondary mx-2">Accept</button>
+                <button className="btn btn-primary mx-2" onClick={() => reviewRequest("rejected",request._id)} >Reject</button>
+                <button className="btn btn-secondary mx-2" onClick={() => reviewRequest("accepted",request._id)} >Accept</button>
             </div>
 
           </div>
@@ -76,5 +88,8 @@ export default Requests
 //  7. Lets us add the user in ui or Read hte user request from redux store using use selector which get in or declare it in request function
 //  8. as same as the connection
 //  9. Then add two button named Reject and accept
-
+// 10. Create a function(reviewRequest) which handle accept and reject
+// 11. Getting the status and id make a api all amd implement the funcion in accept and reject button
+// 12. after accept and reject the request the cart of review request is gone for this
+//     we create removeRequest in requestSlice then dispatch this action in Request.jsx after calling the API
 
