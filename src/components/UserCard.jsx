@@ -23,7 +23,7 @@ const dispatch = useDispatch()
   return (
    <div 
   data-theme="valentine"
-  className="card bg-white w-80 shadow-lg text-primary-content border-2 border-pink-200 rounded-2xl">
+  className="card bg-white w-80 text-black shadow-lg  rounded-2xl">
   <figure>
     <img
       src={user.photoUrl}
