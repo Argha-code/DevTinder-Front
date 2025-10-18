@@ -55,11 +55,11 @@ const Login = () => {
   
 
   return ( // if it a login form then write Login else write signUp
-    <div className='flex justify-center my-8 card bg-secondary w-80 shadow-lg text-primary-content border-2 border-pink-700 rounded-2xl'>
+    <div className='flex justify-center my-8 '>
         
-      <div className="card card-dash bg-info-content w-85">
+      <div className="card bg-pink-500 text-pink-200 shadow-xl w-85">
       <div className="card-body">
-      <h2 className="card-title  justify-center">{isLoginForm ? "Login" : "SignUp" }</h2>   
+      <h2 className="card-title text-pink-300 justify-center">{isLoginForm ? "Login" : "SignUp" }</h2>   
 
    <div > 
 
