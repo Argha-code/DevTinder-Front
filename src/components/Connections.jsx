@@ -35,7 +35,7 @@ const Connections = () => {
 
   return (
     <div className=" text-center my-10">
-        <h1 className="text-bold text-white text-3xl">Connections</h1>
+        <h1 className="text-bold text-black text-3xl">Connections</h1>
 
         {connections.map((connection) => {
           const {_id, firstName, lastName, photoUrl, age,gender, about} = connection  // extract all and all the things comes from my connection
