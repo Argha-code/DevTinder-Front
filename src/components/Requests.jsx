@@ -64,8 +64,8 @@ const Requests = () => {
             </div>
                
             <div>
-                <button className="btn btn-primary mx-2" onClick={() => reviewRequest("rejected",request._id)} >Reject</button>
-                <button className="btn btn-secondary mx-2" onClick={() => reviewRequest("accepted",request._id)} >Accept</button>
+                <button className="btn btn-primary mx-2" onClick={() => reviewRequest("rejected",r._id)} >Reject</button>
+                <button className="btn btn-secondary mx-2" onClick={() => reviewRequest("accepted",r._id)} >Accept</button>
             </div>
 
           </div>
