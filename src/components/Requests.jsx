@@ -45,7 +45,7 @@ const Requests = () => {
     <div className=" text-center my-10">
         <h1 className="text-bold text-white text-3xl">Connection Requests</h1>
 
-        {requests.map((request) => {
+        {requests?.map((request) => {
           const {_id, firstName, lastName, photoUrl, age,gender, about} = request.fromUserId  // extract all and all the things comes from my connection and getting the data request.fromUserId
 
 
