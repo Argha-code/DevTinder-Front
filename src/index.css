@@ -5,6 +5,6 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
+  --color-primary: valentine;
   --color-secondary: teal;
 }
