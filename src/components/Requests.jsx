@@ -45,10 +45,8 @@ const Requests = () => {
     <div className=" text-center my-10">
         <h1 className="text-bold text-white text-3xl">Connection Requests</h1>
 
-        {requests
-        .filter((r) = r?.fromUserId)
-          .map((r) => {
-          const {_id, firstName, lastName, photoUrl, age,gender, about} = r.fromUserId  // extract all and all the things comes from my connection and getting the data request.fromUserId
+        {requests.map((request) => {
+          const {_id, firstName, lastName, photoUrl, age,gender, about} = request.fromUserId  // extract all and all the things comes from my connection and getting the data request.fromUserId
 
 
           return (
@@ -64,8 +62,8 @@ const Requests = () => {
             </div>
                
             <div>
-                <button className="btn btn-primary mx-2" onClick={() => reviewRequest("rejected",r._id)} >Reject</button>
-                <button className="btn btn-secondary mx-2" onClick={() => reviewRequest("accepted",r._id)} >Accept</button>
+                <button className="btn btn-primary mx-2" onClick={() => reviewRequest("rejected",request._id)} >Reject</button>
+                <button className="btn btn-secondary mx-2" onClick={() => reviewRequest("accepted",request._id)} >Accept</button>
             </div>
 
           </div>
