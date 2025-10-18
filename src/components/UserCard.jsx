@@ -21,7 +21,7 @@ const dispatch = useDispatch()
     }
   }
   return (
-   <div className="card bg-info-content w-80 shadow-sm">
+   <div className="card  w-80 shadow-sm">
   <figure>
     <img
       src={user.photoUrl}
