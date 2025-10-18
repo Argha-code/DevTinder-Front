@@ -46,9 +46,9 @@ const Requests = () => {
         <h1 className="text-bold text-white text-3xl">Connection Requests</h1>
 
         {requests
-        .filter((request) = request?.fromUserId)
-          .map((request) => {
-          const {_id, firstName, lastName, photoUrl, age,gender, about} = request.fromUserId  // extract all and all the things comes from my connection and getting the data request.fromUserId
+        .filter((r) = r?.fromUserId)
+          .map((r) => {
+          const {_id, firstName, lastName, photoUrl, age,gender, about} = r.fromUserId  // extract all and all the things comes from my connection and getting the data request.fromUserId
 
 
           return (
