@@ -55,7 +55,7 @@ const Login = () => {
   
 
   return ( // if it a login form then write Login else write signUp
-    <div className='flex justify-center my-8'>
+    <div className='flex justify-center my-8 card bg-secondary w-80 shadow-lg text-primary-content border-2 border-pink-700 rounded-2xl'>
         
       <div className="card card-dash bg-info-content w-85">
       <div className="card-body">
