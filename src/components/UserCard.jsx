@@ -21,7 +21,9 @@ const dispatch = useDispatch()
     }
   }
   return (
-   <div className="card  w-80 shadow-sm">
+   <div 
+   data-theme="valentine"
+   className="card bg-secondary w-80 shadow-lg text-secondary-content">
   <figure>
     <img
       src={user.photoUrl}
