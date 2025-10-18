@@ -54,9 +54,9 @@ const navigate = useNavigate()
           </Link>
         </li>
 
-        <li><Link to="/connections">Connections</Link></li>
+        <li><Link to="/connections">My Friends</Link></li>
 
-         <li><Link to="/requests">Requests</Link></li>
+         <li><Link to="/requests">Requests Received</Link></li>
 
         <li>
           <a onClick={handleLogout}>Logout</a>
